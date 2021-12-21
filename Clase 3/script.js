@@ -1,6 +1,7 @@
 let num = 0;
 let counter = 0;
 let flag = true;
+let number;
 
 // Bucle para adivinar un número pre-establecido.
 // Con un contador que te da el número de veces que tuviste que ingresar
@@ -8,8 +9,15 @@ let flag = true;
 
 // Si el contador llega a 10 perdiste
 while(flag && counter < 10){
-    num = parseInt(prompt(`Digite un número a adivinar de 0-100: 
-    Intentos: ${10 - counter}`));
+    do{
+        number = false;
+
+        num = parseInt(prompt(`Digite un número a adivinar de 0-100: 
+        Intentos: ${10 - counter}`));
+
+        typeof num === "number" ? number = true : alert("Tienes que ingresar un valor numérico...");
+    } while(!number);
+    
     counter++;
 
     // Este condicional te indica si tu número es mayor o menor al 
